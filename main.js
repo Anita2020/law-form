@@ -50,6 +50,18 @@ $(document).ready(() => {
       val = $this.val()
     val = val.toLowerCase()
   })
+  // Hide the products fields until yes is clicked
+  $('#yes').click(function (e) {
+    $('#mentor').prop("disabled", false);
+  });
+
+  // Hide the products fields if no is clicked
+  $('#no').click(function (e) {
+    $('#mentor').prop("disabled", true);
+  });
+
+  $('form').submit(function (event) {
+    event.preventDefault();
 
   $('form').submit(event => {
     // stop the button from submitting
@@ -61,55 +73,33 @@ $(document).ready(() => {
     $('button').html(
       'Loading <span class="spinner"></span><i class="fa fa-spinner fa-spin"></i></span>'
     )
+    // Put the Form Data into Variables
+    let firstName = $.trim(document.getElementById('firstName').value);
+    let lastName = $.trim(document.getElementById('lastName').value);
+    let email = $.trim(document.getElementById('email').value);
+    let phone = $.trim(document.getElementById('phone').value);
+    let location= $.trim(document.getElementById('whatYouDo').value);
+    let ownABusiness = document.querySelector('input[name="ownABusiness"]:checked').value;
+    let organisation = $.trim(document.getElementById('organisation').value);
+    let websiteLink = $.trim(document.getElementById('websiteLink').value)
+    let linkedin = $.trim(document.getElementById('linkedin').value);
+    let twitter = $.trim(document.getElementById('twitter').value)
+    let instagram = $.trim(document.getElementById('instagram').value);
+    let facebook = $.trim(document.getElementById('facebook').value)
+    let howLongBusiness = $.trim(document.getElementById('howLongBusiness').value);
+    let challenges = $.trim(document.getElementById('challenges').value)
+    let businessGoals = $.trim(document.getElementById('businessGoals').value);
+    let businessHelp = $.trim(document.getElementById('businessHelp').value)
+    let personalGoals = $.trim(document.getElementById('personalGoals').value);
+    let gains = $.trim(document.getElementById('gains').value)
+    let awloHelp = $.trim(document.getElementById('awloHelp').value);
 
-    if (form.checkValidity() === true) {
-      // put form data into variables
-      let firstName = $.trim(document.getElementById('firstName').value)
-      let lastName = $.trim(document.getElementById('lastName').value)
-      let email = $.trim(document.getElementById('email').value)
-      let phone = $.trim(document.getElementById('phone').value)
-      let country = document.getElementById('country').value
-      let occupation = $.trim(document.getElementById('occupation').value)
-      let organisation = $.trim(document.getElementById('organisation').value)
-      let member = document.querySelector('input[name="member"]:checked').value
-      let referrer = $.trim(document.getElementById('referrer').value)
-      let firstConference = document.querySelector(
-        'input[name="firstConference"]:checked'
-      ).value
-      var currency = 'NGN'
-      var amount = 36200 * 100
-      if (country !== 'Nigeria') {
-        var currency = 'USD'
-      }
-      if (country === 'Rwanda' && currency === 'USD') {
-        var amount = 100 * 100
-      } else if (currency === 'USD') {
-        var amount = 300 * 100
-      }
-      // let amount = document.getElementById('amount').value * 100;
+    let dataString = 'firstName=' + firstName + '&lastName=' + lastName + '&email=' + email + '&phone=' + phone + '&whatYouDo=' + whatYouDo + '&ownABusiness=' + ownABusiness + '&organisation=' + organisation + '&websiteLink=' + websiteLink + '&linkedin=' + linkedin + '&twitter=' + twitter + '&instagram=' + instagram + '&facebook=' + facebook + '&howLongBusiness=' + howLongBusiness + '&challenges=' + challenges + '&businessGoals=' + businessGoals + '&businessHelp=' + businessHelp + '&personalGoals=' + personalGoals + '&gains=' + gains + '&awloHelp=' + awloHelp;
 
-      let postData = JSON.stringify({
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        phone: phone,
-        country: country,
-        occupation: occupation,
-        organisation: organisation,
-        member: member,
-        referrer: referrer,
-        firstConference: firstConference,
-        currency: currency,
-        amount: amount
-      })
 
-      fetch('scripts/paynow.php', {
-        method: 'post',
-        mode: 'same-origin',
-        credentials: 'same-origin',
-        body: postData
-      })
-        .then(response => {
+
+    
+        then(response => {
           return response.json()
         })
         .then(data => {
@@ -130,6 +120,6 @@ $(document).ready(() => {
         .catch(error => {
           console.log('The Request Failed', error)
         })
-    }
+    })
   })
 })

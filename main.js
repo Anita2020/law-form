@@ -78,24 +78,15 @@ $(document).ready(() => {
     let lastName = $.trim(document.getElementById('lastName').value);
     let email = $.trim(document.getElementById('email').value);
     let phone = $.trim(document.getElementById('phone').value);
-    let location= $.trim(document.getElementById('whatYouDo').value);
-    let ownABusiness = document.querySelector('input[name="ownABusiness"]:checked').value;
-    let organisation = $.trim(document.getElementById('organisation').value);
-    let websiteLink = $.trim(document.getElementById('websiteLink').value)
-    let linkedin = $.trim(document.getElementById('linkedin').value);
-    let twitter = $.trim(document.getElementById('twitter').value)
-    let instagram = $.trim(document.getElementById('instagram').value);
-    let facebook = $.trim(document.getElementById('facebook').value)
-    let howLongBusiness = $.trim(document.getElementById('howLongBusiness').value);
-    let challenges = $.trim(document.getElementById('challenges').value)
-    let businessGoals = $.trim(document.getElementById('businessGoals').value);
-    let businessHelp = $.trim(document.getElementById('businessHelp').value)
-    let personalGoals = $.trim(document.getElementById('personalGoals').value);
-    let gains = $.trim(document.getElementById('gains').value)
-    let awloHelp = $.trim(document.getElementById('awloHelp').value);
+    let location = $.trim(document.getElementById('location').value);
+    let service = document.querySelector('input[name="service"]:checked').value;
+    let cases = $.trim(document.getElementById('cases').value);
+    let probono= $.trim(document.getElementById('probono').value)
+    let sentence= $.trim(document.getElementById('sentence').value);
+    let mentor= $.trim(document.getElementById('mentor').value)
+    
 
-    let dataString = 'firstName=' + firstName + '&lastName=' + lastName + '&email=' + email + '&phone=' + phone + '&whatYouDo=' + whatYouDo + '&ownABusiness=' + ownABusiness + '&organisation=' + organisation + '&websiteLink=' + websiteLink + '&linkedin=' + linkedin + '&twitter=' + twitter + '&instagram=' + instagram + '&facebook=' + facebook + '&howLongBusiness=' + howLongBusiness + '&challenges=' + challenges + '&businessGoals=' + businessGoals + '&businessHelp=' + businessHelp + '&personalGoals=' + personalGoals + '&gains=' + gains + '&awloHelp=' + awloHelp;
-
+    let dataString = 'firstName=' + firstName + '&lastName=' + lastName + '&email=' + email + '&phone=' + phone + '&location=' + location + '&service=' + service + '&cases=' + cases + '&probono=' + probono+ '&sentence=' + sentence+ '&mentor=' + mentor;
 
 
     
